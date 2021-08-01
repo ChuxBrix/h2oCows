@@ -5,11 +5,11 @@ from signal import pause
 #twilio library
 from twilio.rest import Client
 #import time stamp
-import datetime
+import time
 
 #twilio credentials
 account_sid = "AC2aa0bc55508405e573786a2acd72bd63"
-auth_token = "xxx"
+auth_token = "secure_token"
 
 #twilio login function
 client = Client(account_sid, auth_token)
@@ -17,18 +17,16 @@ client = Client(account_sid, auth_token)
 
 #when circuit is open
 def float_down():
-	dt = datetime.datetime.now()
-    print("Water Low", dt)
+    print("Water Low")
     message = client.messages.create(
     to="+18018429047",
     from_="+14159961014",
-    body="Cows are THIRSTY", dt)
+    body="Cows are THIRSTY " + time.ctime())
     print(message.sid)
 
 #when circuit is closed
 def float_up():
-	dt = datetime.datetime.now()
-    print("Water Level OK", dt)
+    print("Water Level OK " + time.ctime())
 
 #Define pins switch (button) is connected to
 button = gpiozero.Button(2)
