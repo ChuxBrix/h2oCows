@@ -9,7 +9,7 @@ import datetime
 
 #twilio credentials
 account_sid = "AC2aa0bc55508405e573786a2acd72bd63"
-auth_token = "079f93411b94cca3ab01f97190253202"
+auth_token = "xxx"
 
 #twilio login function
 client = Client(account_sid, auth_token)
